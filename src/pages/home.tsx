@@ -3,8 +3,8 @@ import { Button, Card, Icon } from "m3-dreamland";
 import openInNew from "@ktibow/iconset-material-symbols/open-in-new";
 import code from "@ktibow/iconset-material-symbols/code";
 
-import som from "/som.webp?url";
-import skulk from "/skulk.webp?url";
+import som from "../som.webp";
+import skulk from "../skulk.webp";
 
 import { Emoji } from "../Emoji";
 import { IslandStop } from "./stops/Island";

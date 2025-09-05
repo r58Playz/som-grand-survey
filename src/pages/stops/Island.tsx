@@ -1,13 +1,13 @@
 import { css, type Component } from "dreamland/core"
 import { Stop } from "../../Stop"
 
-import island from "/stops/island/island.webp?url";
-import plane from "/stops/island/plane.webp?url";
+import island from "./island/island.webp"
+import plane from "./island/plane.webp?url";
 
 export let IslandStop: Component = function() {
 	return (
 		<Stop title="http://island" target={19}>
-			<div class="rich-image">
+			<div class="rich-image" style={{ "background-image": `url(${island})` }}>
 				<marquee direction="right" scrollamount={10}>
 					<img src={plane} />
 					<div><span class="pull-up">terrain! PULL UP!!</span></div>
@@ -25,7 +25,6 @@ IslandStop.style = css`
 		position: relative;
 
 		height: 100%;
-		background: url(${island});
 		background-size: cover;
 		background-position: center;
 
