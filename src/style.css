@@ -23,3 +23,7 @@ body,
 	--m3dl-font-display: "DynaPuff";
 	--m3dl-font: "National Park"
 }
+
+a, a:visited {
+	color: rgb(var(--m3dl-color-primary));
+}
