@@ -1,5 +1,5 @@
 import { css, type Component } from "dreamland/core"
-import { Stop } from "../home"
+import { Stop } from "../../Stop"
 
 import island from "/stops/island/island.webp?url";
 import plane from "/stops/island/plane.webp?url";

@@ -1,5 +1,5 @@
 import { css, type Component } from "dreamland/core"
-import { Stop } from "../home"
+import { Stop } from "../../Stop"
 import { Icon } from "m3-dreamland";
 import globeLocationPin from "@ktibow/iconset-material-symbols/globe-location-pin";
 
