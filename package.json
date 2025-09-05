@@ -1,0 +1,23 @@
+{
+	"name": "som-grand-survey",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build:client": "tsc && vite build --ssrManifest .vite/ssr-manifest.json --outDir dist/static",
+		"build:server": "tsc && vite build --ssr src/main-server.ts --outDir dist/server",
+		"build": "pnpm run build:client && pnpm run build:server && node prerender.js",
+		"preview": "cd dist/static && python3 -m http.server 4173"
+	},
+	"devDependencies": {
+		"lightningcss": "^1.30.1",
+		"typescript": "~5.8.3",
+		"vite": "^7.1.2"
+	},
+	"dependencies": {
+		"@ktibow/iconset-material-symbols": "^0.0.1756961234",
+		"dreamland": "link:../dreamland",
+		"m3-dreamland": "link:../m3-dreamland"
+	}
+}
