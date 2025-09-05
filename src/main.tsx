@@ -30,6 +30,8 @@ App.style = css`
 		background: rgb(var(--m3dl-color-background));
 		color: rgb(var(--m3dl-color-on-background));
 		font-family: var(--m3dl-font);
+
+		overflow-y: auto;
 	}
 	:scope > :global(*) {
 		max-width: 62rem;

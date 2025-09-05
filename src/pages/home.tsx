@@ -7,8 +7,10 @@ import som from "/som.webp?url";
 import skulk from "/skulk.webp?url";
 
 import { IslandStop } from "./stops/Island";
+import { UnderConstructionStop } from "./stops/UnderConstruction";
+import { PorplePointStop } from "./stops/PorplePoint";
 
-export let Stop: Component<{ title: string, children: [ComponentChild, ComponentChild], target: number }> = function(cx) {
+export let Stop: Component<{ title: string, children: [ComponentChild, ComponentChild], target?: number }> = function(cx) {
 	return (
 		<div>
 			<Card variant="filled" >
@@ -20,16 +22,18 @@ export let Stop: Component<{ title: string, children: [ComponentChild, Component
 					<div class="expand">
 						{cx.children[1]}
 					</div>
-					<div class="buttons">
-						<Button
-							variant="filled"
-							icon="left"
-							on:click={() => window.open(`https://isle.a.hackclub.dev/scenes/${this.target}`)}
-						>
-							<Icon icon={openInNew} />
-							Visit!
-						</Button>
-					</div>
+					{this.target ?
+						<div class="buttons">
+							<Button
+								variant="filled"
+								icon="left"
+								on:click={() => window.open(`https://isle.a.hackclub.dev/scenes/${this.target}`)}
+							>
+								<Icon icon={openInNew} />
+								Visit!
+							</Button>
+						</div>
+						: null}
 				</div>
 			</Card>
 		</div>
@@ -66,6 +70,16 @@ Stop.style = css`
 		display: flex;
 		justify-content: flex-end;
 	}
+
+	@media (max-width: 800px) {
+		:scope > :global(.m3dl-card) {
+			flex-direction: column;
+		}
+
+		.image {
+			border-radius: 0 0 var(--m3dl-shape-medium) var(--m3dl-shape-medium);
+		}
+	}
 `;
 
 export let Home: Component = function() {
@@ -80,12 +94,23 @@ export let Home: Component = function() {
 				(including all the airplanes failing to land at <b>http://island</b>'s airport <Emoji src={skulk} />)
 
 				so we recommend planning your next visits from here with our information.
-				However, we're still reconstructing after that massive <i>volcano</i> explosion; please don't mind the lack of exhibits and artifacts as we recover...
+				However, we're still reconstructing after that massive <i>volcano explosion</i>; please don't mind the lack of exhibits and artifacts as we recover...
 			</p>
 
 			<div class="m3dl-font-headline-medium"><b>Next Stops</b></div>
 			<div class="stops">
 				<IslandStop />
+				<PorplePointStop />
+				<UnderConstructionStop />
+			</div>
+
+			<div class="m3dl-font-headline-medium about"><b>About This Center</b></div>
+			<div>
+				<div class="info">
+					This center is built with the <code>dreamland.js</code> JavaScript framework, which was rewritten from scratch during Journey v1, Journey v2, and Summer of Making.
+					Components from <code>m3-dreamland</code>, rewritten during Summer of Making to support <code>dreamland.js</code>'s rewrite, were used to give this center a very <i>expressive</i> (possibly even <b>material</b>y) look.
+					Assets and fonts from the Summer of Making website were used as well. Each destination's exhibit uses assets from the location.
+				</div>
 			</div>
 		</div>
 	)
@@ -98,10 +123,20 @@ Home.style = css`
 	}
 
 	.stops {
-		margin-top: 1rem;
+		margin: 1rem 0;
 
-		display: flex;
-		flex-direction: column;
+		display: grid;
+		grid-template-columns: 1fr;
 		gap: 1rem;
+	}
+
+	.about {
+		margin-bottom: 1rem;
+	}
+
+	@media (min-width: 550px) and (max-width: 800px) {
+		.stops {
+			grid-template-columns: 1fr 1fr;
+		}
 	}
 `;
