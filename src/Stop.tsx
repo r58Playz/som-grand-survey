@@ -2,6 +2,38 @@ import { css, type Component, type ComponentChild } from "dreamland/core";
 import { Button, Card, Icon } from "m3-dreamland";
 import openInNew from "@ktibow/iconset-material-symbols/open-in-new";
 
+export let Stops: Component<{ grid: boolean, children: ComponentChild }> = function(cx) {
+	return <div class:grid={use(this.grid)}>{cx.children}</div>
+}
+Stops.style = css`
+	:scope {
+		margin: 1rem 0;
+
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 1rem;
+	}
+
+	.grid {
+		grid-template-areas: "a" "b" "c";
+	}
+	.grid > :global(:nth-child(1)) { grid-area: a; }
+	.grid > :global(:nth-child(2)) { grid-area: b; }
+	.grid > :global(:nth-child(3)) { grid-area: c; }
+
+	@media (min-width: 550px) and (max-width: 800px) {
+		:scope {
+			grid-template-columns: 1fr 1fr;
+		}
+
+		.grid {
+			grid-template-areas:
+				"a b"
+				"c c";
+		}
+	}
+`;
+
 export let Stop: Component<{ title: string, children: [ComponentChild, ComponentChild], target?: number }> = function(cx) {
 	return (
 		<div>

@@ -1,15 +1,16 @@
 import { css, type Component } from "dreamland/core";
 import { Button, Card, Icon } from "m3-dreamland";
-import openInNew from "@ktibow/iconset-material-symbols/open-in-new";
+import openInNew from "@ktibow/iconset-material-symbols/open-in-new-rounded";
+import arrowForward from "@ktibow/iconset-material-symbols/arrow-forward-rounded";
 import code from "@ktibow/iconset-material-symbols/code";
 
 let som = "./som.webp";
 let skulk = "./skulk.webp";
 
-import { Emoji } from "../Emoji";
-import { IslandStop } from "./stops/Island";
-import { UnderConstructionStop } from "./stops/UnderConstruction";
+import { Emoji } from "../Utils";
 import { PorplePointStop } from "./stops/PorplePoint";
+import { GiftShopStop } from "./stops/GiftShop";
+import { Stops } from "../Stop";
 
 export let Home: Component = function() {
 	return (
@@ -18,20 +19,27 @@ export let Home: Component = function() {
 			<div class="m3dl-font-title-large"><b><i>enjoy the view...</i></b></div>
 			<p>
 				Welcome to the official Mount Kablooey Summit visitor center!
-				We're so high up that you can see almost every other exhibit
+				We're so high up that you can see almost the entire island,
 
 				(including all the airplanes failing to land at <b>http://island</b>'s airport <Emoji src={skulk} />)
 
-				so we recommend planning your next visits from here with our information.
+				so we recommend planning your next visits from here with our information and featured exhibits.
 				However, we're still reconstructing after that massive <i>volcano explosion</i>; please don't mind the lack of exhibits and artifacts as we recover...
 			</p>
 
-			<div class="m3dl-font-headline-medium"><b>Next Stops</b></div>
-			<div class="stops">
-				<IslandStop />
+			<div class="m3dl-font-headline-medium"><b>Nearby Stops</b></div>
+			<Stops grid={true}>
+				<GiftShopStop />
 				<PorplePointStop />
-				<UnderConstructionStop />
-			</div>
+				<div class="more">
+					<div>
+						<div class="m3dl-font-title-large"><b>Featured Stops</b></div>
+						There's a lot more to explore on the island!
+						We've curated a seperate exhibition area to showcase all the cool places to visit.
+					</div>
+					<Button variant="filled" size="m" on:click={() => location.href = "./featured"}>View featured <Icon icon={arrowForward} /></Button>
+				</div>
+			</Stops>
 
 			<div class="m3dl-font-headline-medium about"><b>About This Center</b></div>
 			<div class="about-content">
@@ -90,12 +98,14 @@ Home.style = css`
 		vertical-align: -0.125em;
 	}
 
-	.stops {
-		margin: 1rem 0;
-
-		display: grid;
-		grid-template-columns: 1fr;
-		gap: 1rem;
+	.more {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+	}
+	.more > div {
+		flex: 1;
 	}
 
 	.about {
@@ -127,10 +137,6 @@ Home.style = css`
 	.expand { flex: 1; }
 
 	@media (min-width: 550px) and (max-width: 800px) {
-		.stops {
-			grid-template-columns: 1fr 1fr;
-		}
-
 		.about-content {
 			grid-template-columns: 1fr;
 		}

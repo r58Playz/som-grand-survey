@@ -1,6 +1,7 @@
 import { css, type Component } from "dreamland/core";
 import { Route, Router } from "dreamland/router";
 import { Home } from "./pages/home";
+import { Featured } from "./pages/featured";
 
 export let router: Router;
 let url: string | undefined;
@@ -8,6 +9,7 @@ let url: string | undefined;
 let App: Component<{ }, { root: HTMLElement }> = function(cx) {
 	router = new Router(
 		<Route>
+			<Route path="featured" show={<Featured />} />
 			<Route show={<Home />} />
 		</Route>
 	);
