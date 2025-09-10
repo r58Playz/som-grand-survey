@@ -7,15 +7,17 @@ import { Slack } from "../../Utils";
 
 export let GiftShopStop: Component = function() {
 	return (
-		<Stop title="Mount Kablooey Gift Shop" target={11}>
-			<div class="construction">
-				<Icon icon={gift} />
-			</div>
-			<div>
-				The official Mount Kablooey Gift Shop is a great place to get your usual bits and bobs like shirts and mugs (speaking of... why is the branded mug $35??).
-				It's currently going through a rebrand and renovation after the <i>volcano explosion</i> though, so we haven't built the full exhibit yet; ask <Slack id="U091DE0M4NB">peleg2210</Slack> for their progress renovating! 
-			</div>
-		</Stop>
+		<div>
+			<Stop title="Mount Kablooey Gift Shop" target={11}>
+				<div class="construction">
+					<Icon icon={gift} />
+				</div>
+				<div>
+					The official Mount Kablooey Gift Shop is a great place to get your usual bits and bobs like shirts and mugs (speaking of... why is the branded mug $35??).
+					It's currently going through a rebrand and renovation after the <i>volcano explosion</i> though, so we haven't built the full exhibit yet; ask <Slack id="U091DE0M4NB">peleg2210</Slack> for their progress renovating!
+				</div>
+			</Stop>
+		</div>
 	)
 }
 GiftShopStop.style = css`

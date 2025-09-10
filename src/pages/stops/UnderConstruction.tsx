@@ -5,6 +5,7 @@ import construction from "@ktibow/iconset-material-symbols/construction";
 
 export let UnderConstructionStop: Component = function() {
 	return (
+		<div>
 		<Stop title="Exhibits Under Construction">
 			<div class="construction">
 				<Icon icon={construction} />
@@ -15,6 +16,7 @@ export let UnderConstructionStop: Component = function() {
 				More exhibits will be coming as soon as possible!
 			</div>
 		</Stop>
+		</div>
 	)
 }
 UnderConstructionStop.style = css`

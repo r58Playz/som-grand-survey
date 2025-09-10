@@ -6,6 +6,7 @@ import { UnderConstructionStop } from "./stops/UnderConstruction";
 import { Button, Icon } from "m3-dreamland";
 
 import arrowBack from "@ktibow/iconset-material-symbols/arrow-back-rounded";
+import { router } from "dreamland/router";
 
 let som = "./som.webp";
 
@@ -22,7 +23,7 @@ export let Featured: Component = function() {
 				<IslandStop />
 				<UnderConstructionStop />
 			</Stops>
-			<Button variant="filled" size="m" on:click={() => location.href = "./"}><Icon icon={arrowBack} /> Return to lobby</Button>
+			<Button variant="filled" size="m" on:click={() => router.navigate("./")}><Icon icon={arrowBack} /> Return to lobby</Button>
 		</div>
 	)
 }

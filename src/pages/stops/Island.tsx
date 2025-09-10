@@ -3,18 +3,20 @@ import { Stop } from "../../Stop"
 
 export let IslandStop: Component = function() {
 	return (
-		<Stop title="http://island" target={19}>
-			<div class="rich-image">
-				<marquee direction="right" scrollamount={10}>
-					<img src="./stops/island/plane.webp" />
-					<div><span class="pull-up">terrain! PULL UP!!</span></div>
-				</marquee>
-			</div>
-			<div>
-				A small island in the middle of the ocean, home to a small population (currently about 5 people).
-				500ft<sup>2</sup> in size with a tropical climate. Residents are English-speaking and use the Beenz currency and the Internet Time timezone.
-			</div>
-		</Stop>
+		<div>
+			<Stop title="http://island" target={19}>
+				<div class="rich-image">
+					<marquee direction="right" scrollamount={10}>
+						<img src="./stops/island/plane.webp" />
+						<div><span class="pull-up">terrain! PULL UP!!</span></div>
+					</marquee>
+				</div>
+				<div>
+					A small island in the middle of the ocean, home to a small population (currently about 5 people).
+					500ft<sup>2</sup> in size with a tropical climate. Residents are English-speaking and use the Beenz currency and the Internet Time timezone.
+				</div>
+			</Stop>
+		</div>
 	)
 }
 IslandStop.style = css`

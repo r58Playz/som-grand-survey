@@ -2,7 +2,7 @@ import { dirname, resolve as resolvePath } from "node:path";
 import { fileURLToPath } from "node:url";
 
 import { renderSsr } from "dreamland/vite";
-import { cp, rm, writeFile } from "node:fs/promises";
+import { readFile, rm, writeFile } from "node:fs/promises";
 
 import theme from "./theme.js";
 
@@ -14,8 +14,7 @@ const entry = await import(resolve("dist/server/main-server.js"));
 entry.default("/");
 const paths = entry.router.ssgables();
 
-let template = resolve("dist/static/.vite/template.html");
-await cp(resolve("dist/static/index.html"), template);
+let template = await readFile("dist/static/index.html", "utf8");
 
 for (const [route, path] of paths) {
 	let rendered = await renderSsr(

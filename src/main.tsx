@@ -1,30 +1,26 @@
 import { css, type Component } from "dreamland/core";
-import { Route, Router } from "dreamland/router";
+import { Route, router, Router } from "dreamland/router";
 import { Home } from "./pages/home";
 import { Featured } from "./pages/featured";
 
-export let router: Router;
 let url: string | undefined;
 
-let App: Component<{ }, { root: HTMLElement }> = function(cx) {
-	router = new Router(
-		<Route>
-			<Route path="featured" show={<Featured />} />
-			<Route show={<Home />} />
-		</Route>
-	);
-
+let App: Component<{}, { root: HTMLElement }> = function(cx) {
 	cx.init = () => {
 		if (import.meta.env.SSR) {
-			router.mount(this.root, true);
-			router.route(url, "http://127.0.0.1:5173");
+			console.log(url, router.route(url, "http://127.0.0.1:5173"));
 		} else {
-			router.mount(this.root);
+			router.route();
 		}
 	}
 
 	return (
-		<div id="app" class="m3dl-colon3 m3dl-font-body-large"><placeholder this={use(this.root)} /></div>
+		<div id="app" class="m3dl-colon3 m3dl-font-body-large">
+			<Router>
+				<Route path="featured" show={<Featured />} />
+				<Route show={<Home />} />
+			</Router>
+		</div>
 	)
 }
 App.style = css`
