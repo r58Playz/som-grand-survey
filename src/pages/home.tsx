@@ -6,6 +6,7 @@ import code from "@ktibow/iconset-material-symbols/code";
 
 let som = "./som.webp";
 let skulk = "./skulk.webp";
+let stickerlode3 = "./stickerlode-3.webp"
 
 import { Emoji } from "../Utils";
 import { PorplePointStop } from "./stops/PorplePoint";
@@ -18,15 +19,23 @@ export let Home: Component = function() {
 		<div>
 			<div class="m3dl-font-display-small title"><img src={som} /> Mount Kablooey Summit</div>
 			<div class="m3dl-font-title-large"><b><i>enjoy the view...</i></b></div>
-			<p>
-				Welcome to the official Mount Kablooey Summit visitor center!
-				We're so high up that you can see almost the entire island,
+			<div class="top">
+				<div class="content">
+					<p>
+						Welcome to the official Mount Kablooey Summit visitor center!
+						We're so high up that you can see almost the entire island,
 
-				(including all the airplanes failing to land at <b>http://island</b>'s airport <Emoji src={skulk} />)
+						(including all the airplanes failing to land at <b>http://island</b>'s airport <Emoji src={skulk} />)
 
-				so we recommend planning your next visits from here with our information and featured exhibits.
-				However, we're still reconstructing after that massive <i>volcano explosion</i>; please don't mind the lack of exhibits and artifacts as we recover...
-			</p>
+						so we recommend planning your next visits from here with our information and featured exhibits.
+						However, we're still reconstructing after that massive <i>volcano explosion</i>; please don't mind the lack of exhibits and artifacts as we recover...
+					</p>
+					<p>
+						Heidi visited us recently and gave us this awesome sticker of her on Mount Kablooey to give out specifically on 15-09-2025; not sure why that date though, maybe it's a special event?
+					</p>
+				</div>
+				<img class="sticker" src={stickerlode3} />
+			</div>
 
 			<div class="m3dl-font-headline-medium"><b>Nearby Stops</b></div>
 			<Stops grid={true}>
@@ -93,6 +102,19 @@ export let Home: Component = function() {
 	)
 }
 Home.style = css`
+	.top {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+	}
+	.top .content {
+		flex: 1;
+	}
+	.sticker {
+		height: 200px;
+		object-fit: cover;
+	}
+
 	.title img {
 		width: 1em;
 		height: 1em;
@@ -141,11 +163,22 @@ Home.style = css`
 		.about-content {
 			grid-template-columns: 1fr;
 		}
+		.sticker {
+			height: 150px;
+		}
 	}
 
 	@media (max-width: 550px) {
 		.about-content {
 			grid-template-columns: 1fr;
+		}
+
+		.top {
+			flex-direction: column-reverse;
+		}
+		.sticker {
+			margin-top: 1rem;
+			height: 150px;
 		}
 
 		.cards {
