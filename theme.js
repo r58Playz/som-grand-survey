@@ -10,9 +10,17 @@ export default () => {
 		isDark: true,
 	});
 
+	let shopScheme = new DynamicScheme({
+		sourceColorHct: Hct.fromInt(0x008039ba),
+		contrastLevel: 0,
+		specVersion: "2025",
+		variant: Variant.VIBRANT,
+		isDark: true,
+	});
+
 	return transform({ 
 		filename: "m3dl.theme.css",
-		code: Buffer.from(genStyle("m3dl-colon3", scheme, "expressive")),
+		code: Buffer.from(genStyle("m3dl-colon3", scheme, "expressive") + genStyle("m3dl-gift-shop", shopScheme, "expressive")),
 		minify: true
 	}).code;
 }

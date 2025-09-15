@@ -8,7 +8,7 @@ let url: string | undefined;
 let App: Component<{}, { root: HTMLElement }> = function(cx) {
 	cx.init = () => {
 		if (import.meta.env.SSR) {
-			console.log(url, router.route(url, "http://127.0.0.1:5173"));
+			router.route(url, "http://127.0.0.1:5173");
 		} else {
 			router.route();
 		}
