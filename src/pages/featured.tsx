@@ -8,6 +8,7 @@ import { Button, Icon } from "m3-dreamland";
 import arrowBack from "@ktibow/iconset-material-symbols/arrow-back-rounded";
 import { router } from "dreamland/router";
 import { CrabRaveStop } from "./stops/CrabRave";
+import { base } from "../main";
 
 let som = "./som.webp";
 
@@ -25,7 +26,7 @@ export let Featured: Component = function() {
 				<CrabRaveStop />
 				<UnderConstructionStop />
 			</Stops>
-			<Button variant="filled" size="m" on:click={() => router.navigate("./")}><Icon icon={arrowBack} /> Return to lobby</Button>
+			<Button variant="filled" size="m" on:click={() => router.navigate(base)}><Icon icon={arrowBack} /> Return to lobby</Button>
 		</div>
 	)
 }

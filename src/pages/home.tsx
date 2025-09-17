@@ -13,6 +13,7 @@ import { PorplePointStop } from "./stops/PorplePoint";
 import { GiftShopStop } from "./stops/GiftShop";
 import { Stops } from "../Stop";
 import { router } from "dreamland/router";
+import { base } from "../main";
 
 export let Home: Component = function() {
 	return (
@@ -47,7 +48,7 @@ export let Home: Component = function() {
 						There's a lot more to explore on the island!
 						We've curated a seperate exhibition area to showcase all the cool places to visit.
 					</div>
-					<Button variant="filled" size="m" on:click={() => router.navigate("./featured")}>View featured <Icon icon={arrowForward} /></Button>
+					<Button variant="filled" size="m" on:click={() => router.navigate(base + "/featured")}>View featured <Icon icon={arrowForward} /></Button>
 				</div>
 			</Stops>
 

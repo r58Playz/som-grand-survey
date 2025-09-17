@@ -27,7 +27,7 @@ export let CrabRaveStop: Component<{}, { meta: ({ path: string, x: number, y: nu
 			<Stop title="Crab Rave" target={16}>
 				<div class="rave">
 					<div>
-						{use(this.meta).mapEach(x => <img src={`../stops/crab-rave/${x.path}.webp`} style={{ "--x": x.x + "%", "--y": x.y + "%", "--hue": x.hue + "deg" }} />)}
+						{use(this.meta).mapEach(x => <img src={`./stops/crab-rave/${x.path}.webp`} style={{ "--x": x.x + "%", "--y": x.y + "%", "--hue": x.hue + "deg" }} />)}
 					</div>
 					<Button variant="tonal" icon="full" on:click={generate}><Icon icon={refresh} /></Button>
 				</div>
@@ -48,7 +48,7 @@ CrabRaveStop.style = css`
 		height: 100%;
 		padding: 0 20% 20% 0;
 
-		background: url(../stops/crab-rave/beach.webp);
+		background: url(./stops/crab-rave/beach.webp);
 		background-size: cover;
 		background-position: center;
 	}

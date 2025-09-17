@@ -4,6 +4,14 @@ import { Home } from "./pages/home";
 import { Featured } from "./pages/featured";
 
 let url: string | undefined;
+export let base: string;
+if (import.meta.env.SSR) {
+	base = ""
+} else {
+	/* @vite-ignore */
+	let path = new URL("../", import.meta.url).pathname;
+	base = path.slice(1, path.length - 1);
+}
 
 let App: Component<{}, { root: HTMLElement }> = function(cx) {
 	cx.init = () => {
@@ -17,8 +25,10 @@ let App: Component<{}, { root: HTMLElement }> = function(cx) {
 	return (
 		<div id="app" class="m3dl-colon3 m3dl-font-body-large">
 			<Router>
-				<Route path="featured" show={<Featured />} />
-				<Route show={<Home />} />
+				<Route path={base}>
+					<Route show={<Home />} />
+					<Route path="featured" show={<Featured />} />
+				</Route>
 			</Router>
 		</div>
 	)
