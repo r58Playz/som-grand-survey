@@ -6,17 +6,17 @@ import globeLocationPin from "@ktibow/iconset-material-symbols/globe-location-pi
 export let PorplePointStop: Component = function() {
 	return (
 		<div>
-		<Stop title="Porple Point" target={98}>
-			<div class="construction">
-				<Icon icon={globeLocationPin} />
-			</div>
-			<div>
-				Porple Point's exhibit is currently being constructed!
-				Our most senior employee is currently out on an expedition collecting data to display here.
-				We aim to provide our visitors with info about Porple Point as soon as possible!
-				For now, you can trek down and visit it yourself; we don't provide any guarantees about what's there, however.
-			</div>
-		</Stop>
+			<Stop title="Porple Point" target={98}>
+				<div class="construction">
+					<Icon icon={globeLocationPin} />
+				</div>
+				<div>
+					Porple Point's exhibit is being constructed!
+					Our most senior employee is currently out on an expedition collecting data to display here.
+					We aim to provide our visitors with info about Porple Point as soon as possible!
+					For now, you can trek down and visit it yourself; we don't provide any guarantees about what's there, however.
+				</div>
+			</Stop>
 		</div>
 	)
 }

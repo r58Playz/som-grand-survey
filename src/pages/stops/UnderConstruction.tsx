@@ -6,16 +6,16 @@ import construction from "@ktibow/iconset-material-symbols/construction";
 export let UnderConstructionStop: Component = function() {
 	return (
 		<div>
-		<Stop title="Exhibits Under Construction">
-			<div class="construction">
-				<Icon icon={construction} />
-			</div>
-			<div>
-				We apologize for the lack of exhibits showcasing <i>Hacklantis Island</i>.
-				We need to send our employees out to collect fresh information after our databases were... erm... <b>vitrified</b>... by the explosion.
-				More exhibits will be coming as soon as possible!
-			</div>
-		</Stop>
+			<Stop title="Exhibits Under Construction">
+				<div class="construction">
+					<Icon icon={construction} />
+				</div>
+				<div>
+					We apologize for the lack of exhibits showcasing <i>Hacklantis Island</i>.
+					We need to send our employees out to collect fresh information after our databases were... erm... <b>vitrified</b>... by the explosion.
+					More exhibits will be coming as soon as possible!
+				</div>
+			</Stop>
 		</div>
 	)
 }

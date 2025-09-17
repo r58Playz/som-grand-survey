@@ -54,8 +54,9 @@ export let Home: Component = function() {
 			<div class="m3dl-font-headline-medium about"><b>About This Center</b></div>
 			<div class="about-content">
 				<div class="info">
-					This center is built with the <code>dreamland.js</code> JavaScript framework, which was rewritten from scratch during Journey v1, Journey v2, and Summer of Making.
-					It's been prerendered and hydrated client-side with <code>dreamland.js</code>'s <b>built-in SSR support</b> and Vite integrations (developed during Summer of Making).
+					The code for this center is available <a href="https://github.com/r58playz/som-grand-survey" target="_blank">on GitHub</a>.
+					It's built with the <code>dreamland.js</code> JavaScript framework, which was rewritten from scratch during Journey v1, Journey v2, and Summer of Making.
+					It's also been prerendered and hydrated client-side with <code>dreamland.js</code>'s <b>built-in SSR support</b> and Vite integrations (developed during Summer of Making).
 					Components from <code>m3-dreamland</code>, rewritten during Summer of Making to support <code>dreamland.js</code>'s rewrite, were used to give this center a very <i>expressive</i> (possibly even a little <b>material</b>-like) look.
 					Assets and fonts from the Summer of Making website were used as well. Each destination's exhibit uses assets from the location.
 				</div>
